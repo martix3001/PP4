@@ -19,8 +19,27 @@ public class SalesTest {
 
 
     }
+    @Test
+    void itDistinguishCartsByCustomer(){
+        String productA = thereIsProduct("Example a",BigDecimal.valueOf(10));
+        String productB = thereIsProduct("Example b",BigDecimal.valueOf(20));
+        String customerA = thereIsExampleCustomer("Kuba");
+        String customerB = thereIsExampleCustomer("Marek");
+        SalesFacade sales=thereIsSalesFacade();
 
-    private Object thereIsProduct(String name, BigDecimal value) {
+        sales.addToCart(customerA,productA);
+        sales.addToCart(customerB,productB);
+        Offer OfferA = sales.getCurrentOffer(customerA);
+        Offer OfferB = sales.getCurrentOffer(customerB);
+
+        assertEquals(1,OfferA.getItemsCount());
+        assertEquals(BigDecimal.valueOf(10),OfferA.getTotal());
+
+        assertEquals(1,OfferB.getItemsCount());
+        assertEquals(BigDecimal.valueOf(20),OfferB.getTotal());
+
+    }
+    private String thereIsProduct(String name, BigDecimal value) {
         return null;
     }
 

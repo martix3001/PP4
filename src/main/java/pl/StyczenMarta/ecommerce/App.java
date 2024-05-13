@@ -21,9 +21,9 @@ public class App {
     @Bean
     ProductCatalog createMyProductCatalog() {
         ProductCatalog productCatalog = new ProductCatalog(new ArrayListProductStorage());
-        productCatalog.addProduct("set 1", "Decent,Price($):", BigDecimal.valueOf(10));
-        productCatalog.addProduct("set 2", "Nice,Price($):",BigDecimal.valueOf(20));
-        productCatalog.addProduct("set 3", "Nice one,Price($):",BigDecimal.valueOf(30));
+        productCatalog.addProduct("Product 1", "Good,Price($):", BigDecimal.valueOf(10));
+        productCatalog.addProduct("Product 2", "Bad,Price($):",BigDecimal.valueOf(20));
+        productCatalog.addProduct("Product 3", "Saad,Price($):",BigDecimal.valueOf(30));
 
         return productCatalog;
     }

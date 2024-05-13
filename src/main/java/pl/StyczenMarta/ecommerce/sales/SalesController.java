@@ -32,7 +32,7 @@ public class SalesController {
     }
 
     private String getCurrentCustomerId() {
-        return "Mikołaj";
+        return "Marta";
     }
 
     @PostMapping("/api/add-to-cart/{productId}")
