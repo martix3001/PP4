@@ -1,4 +1,4 @@
-package pl.styczenmarta.ecommerce;
+package pl.styczenmarta.ecommerce.catalog;
 
 import pl.styczenmarta.ecommerce.catalog.Product;
 import pl.styczenmarta.ecommerce.catalog.ProductStorage;

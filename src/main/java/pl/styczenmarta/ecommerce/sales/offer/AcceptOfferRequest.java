@@ -1,4 +1,4 @@
-package pl.styczenmarta.ecommerce.sales;
+package pl.styczenmarta.ecommerce.sales.offer;
 
 public class AcceptOfferRequest {
     String firstName;

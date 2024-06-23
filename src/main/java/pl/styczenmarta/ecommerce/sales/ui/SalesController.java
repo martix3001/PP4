@@ -1,9 +1,12 @@
-package pl.styczenmarta.ecommerce.sales;
+package pl.styczenmarta.ecommerce.sales.ui;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+import pl.styczenmarta.ecommerce.sales.offer.AcceptOfferRequest;
+import pl.styczenmarta.ecommerce.sales.order.ReservationDetail;
+import pl.styczenmarta.ecommerce.sales.SalesFacade;
 import pl.styczenmarta.ecommerce.sales.cart.InMemoryCartStorage;
 import pl.styczenmarta.ecommerce.sales.offer.Offer;
 import pl.styczenmarta.ecommerce.sales.offer.OfferCalculator;
@@ -25,13 +28,16 @@ public class SalesController {
 
     }
 
-    @PostMapping("/api/accept-offer")
+/*    @PostMapping("/api/accept-offer")
     ReservationDetail acceptOffer(AcceptOfferRequest acceptOfferRequest) {
         String customerId = getCurrentCustomerId();
-        ReservationDetail reservationDetails=acceptOfffer(customerId,acceptOfferRequest);
-        return reservationDetails;
-    }
-
+        return salesFacade.acceptOffer(customerId, acceptOfferRequest);
+    }*/
+    @PostMapping("/api/accept-offer")
+    ReservationDetail acceptOffer(AcceptOfferRequest acceptOfferRequest){
+    String customerId = getCurrentCustomerId();
+    return salesFacade.acceptOffer(customerId, acceptOfferRequest);
+}
     private ReservationDetail acceptOfffer(String customerId, AcceptOfferRequest acceptOfferRequest) {
         return new ReservationDetail();
     }

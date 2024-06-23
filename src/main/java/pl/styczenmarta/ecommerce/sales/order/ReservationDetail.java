@@ -1,4 +1,4 @@
-package pl.styczenmarta.ecommerce.sales;
+package pl.styczenmarta.ecommerce.sales.order;
 
 public class ReservationDetail {
     public String getReservationId(){
