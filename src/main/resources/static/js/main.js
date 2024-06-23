@@ -9,11 +9,16 @@ const getCurrentOffer = () => {
     return fetch("/api/current-offer")
         .then(response => response.json());
 }
-
+const addProductToCart = (product) => {
+    return fetch(`api/add-to-cart/${product}`, {
+        method: "POST",
+    });
+}
 createProductHtmlEl = (productData) => {
     const template = `
         <div>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThtvTcTtNhsHpbjUJA5zozfapMee2a9MsxXRP4MPxNgQ&s" width="200" height="200">
+            
+            <img src="https://cdn.pixabay.com/photo/2016/06/14/04/51/bag-1455765_1280.jpg" alt="zdjęcie produktu" width="200" height="200">
             <h4>${productData.name}</h4>
             <span>${productData.description}</span>
             <span>${productData.price}</span>
@@ -35,14 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
             productsHtmls.forEach(htmlEl => productsList.appendChild(htmlEl))
         });
 })
-
-const addProductToCart = (product) => {
-    return fetch(`api/add-to-cart/${product}`, {
-        method: "POST",
-    });
-}
-
-
 const acceptOffer = (acceptOfferRequest) => {
     return fetch("/api/accept-offer", {
         method: "POST",
@@ -61,7 +58,7 @@ const refreshCurrentOffer = () => {
     getCurrentOffer()
         .then(offer => {
             totalEl.textContent = `${offer.total} PLN`;
-            itemCountEl.textContent = `${offer.getItemsCount} Items`;
+            itemCountEl.textContent = `${offer.itemsCount} Items`;
         })
 }
 

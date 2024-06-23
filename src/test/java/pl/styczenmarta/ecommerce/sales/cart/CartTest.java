@@ -7,6 +7,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.*;
 
 public class CartTest {
+
     @Test
     void itIsEmptyWhenCreated(){
         Cart cart = Cart.empty();

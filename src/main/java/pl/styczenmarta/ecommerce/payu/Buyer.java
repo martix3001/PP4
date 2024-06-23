@@ -4,6 +4,7 @@ public class Buyer {
     String email,phone,firstName, lastName,language;
 
     public String getEmail() {
+
         return email;
     }
 
@@ -13,6 +14,7 @@ public class Buyer {
     }
 
     public String getPhone() {
+
         return phone;
     }
 

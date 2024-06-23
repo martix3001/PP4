@@ -28,11 +28,6 @@ public class SalesController {
 
     }
 
-/*    @PostMapping("/api/accept-offer")
-    ReservationDetail acceptOffer(AcceptOfferRequest acceptOfferRequest) {
-        String customerId = getCurrentCustomerId();
-        return salesFacade.acceptOffer(customerId, acceptOfferRequest);
-    }*/
     @PostMapping("/api/accept-offer")
     ReservationDetail acceptOffer(AcceptOfferRequest acceptOfferRequest){
     String customerId = getCurrentCustomerId();

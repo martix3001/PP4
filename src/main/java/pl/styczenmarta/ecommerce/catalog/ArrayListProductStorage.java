@@ -1,6 +1,7 @@
 package pl.styczenmarta.ecommerce.catalog;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ArrayListProductStorage implements ProductStorage {
@@ -11,7 +12,8 @@ public class ArrayListProductStorage implements ProductStorage {
     }
 
     public List<Product> allProducts() {
-        return products;
+
+        return Collections.unmodifiableList(products);
     }
 
     public Product getProductBy(String id) {

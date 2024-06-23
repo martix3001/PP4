@@ -9,13 +9,14 @@ import pl.styczenmarta.ecommerce.sales.order.ReservationDetail;
 
 
 public class SalesFacade {
-    private final OfferCalculator calculator;
+    private OfferCalculator calculator;
     private InMemoryCartStorage cartStorage;
     private OfferCalculator offerCalculator;
 
     public SalesFacade(InMemoryCartStorage cartStorage, OfferCalculator calculator){
         this.cartStorage = cartStorage;
-        this.calculator = calculator;
+        this.offerCalculator = calculator;
+
     }
 
     public void addToCart(String customerId, String productId) {

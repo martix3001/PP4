@@ -33,10 +33,10 @@ public class OrderCreateResponse {
     }
 
     public Object getRedirectUri() {
-        return null;
+        return redirectUri;
     }
 
     public Object getOrderId() {
-        return null;
+        return orderId;
     }
 }

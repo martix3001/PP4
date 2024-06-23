@@ -8,12 +8,17 @@ import org.springframework.web.client.RestTemplate;
 public class Payu {
 
     RestTemplate http;
-    // TODO constructor not complete
-    public Payu(RestTemplate http) {
+    private PayuCredentials credentials;
+
+    public Payu(RestTemplate http, PayuCredentials credentials) {
+
         this.http = http;
+        this.credentials = credentials;
     }
 
     public OrderCreateResponse handle(OrderCreateRequest orderCreateRequest) {
+        var url = getUrl("/api/v2_1/orders");
+
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Type", "application/json");
         headers.add("Authorization", String.format("Bearer %s", getToken()));
@@ -28,14 +33,18 @@ public class Payu {
         return orderCreateResponseResponseResponse.getBody();
     }
 
+    private Object getUrl(String path) {
+        return String.format("%s%s",credentials.getBaseUrl(),path);
+    }
+
     private String getToken() {
+        var url = getUrl("/pl/standard/user/oauth/authorize");
         String body = String.format("grant_type=client_credentials&client_id=%s&client_secret=%s",
                 PayuCredentials.getClientId(),
                 PayuCredentials.getClientSecret()
         );
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-
         HttpEntity<String> request = new HttpEntity<>(body,headers);
 
         ResponseEntity<AccessTokenResponse> atResponse = http.postForEntity(
@@ -43,6 +52,7 @@ public class Payu {
                 request,
                 AccessTokenResponse.class
         );
+
         return atResponse.getBody().getAccessToken();
     }
 }

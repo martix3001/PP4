@@ -10,6 +10,7 @@ public class ProductCatalogController {
     ProductCatalog catalog;
 
     public ProductCatalogController(ProductCatalog catalog) {
+
         this.catalog = catalog;
     }
 

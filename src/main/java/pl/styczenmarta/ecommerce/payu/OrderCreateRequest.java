@@ -12,6 +12,7 @@ public class OrderCreateRequest {
     private String customerIp;
 
     public String getCurrencyCode() {
+
         return currencyCode;
     }
 

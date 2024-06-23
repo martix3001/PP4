@@ -1,14 +1,25 @@
 package pl.styczenmarta.ecommerce.payu;
 
 public class PayuCredentials {
-    static boolean sandbox;
+    boolean sandbox;
+    static String clientId;
+    static String clientSecret;
 
-    public static Object getClientSecret() {
-        return null;
+    public PayuCredentials(String clientId, String clientSecret, boolean sandbox) {
+        this.clientId = clientId;
+        this.clientSecret = clientSecret;
+        this.sandbox = sandbox;
+    }
+    public static PayuCredentials sandbox(String clientId, String clientSecret) {
+        return new PayuCredentials(clientId, clientSecret, true);
     }
 
-    public static Object getClientId() {
-        return null;
+    public static String getClientId() {
+        return clientId;
+    }
+
+    public static String getClientSecret() {
+        return clientSecret;
     }
 
     public String getBaseUrl() {

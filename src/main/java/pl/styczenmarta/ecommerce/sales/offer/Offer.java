@@ -3,8 +3,8 @@ package pl.styczenmarta.ecommerce.sales.offer;
 import java.math.BigDecimal;
 
 public class Offer {
-    private final BigDecimal total;
-    private final int itemsCount;
+    BigDecimal total;
+    int itemsCount;
 
     public Offer(BigDecimal total, int itemsCount)
     {
@@ -13,10 +13,10 @@ public class Offer {
     }
 
     public int getItemsCount() {
-        return 0;
+        return itemsCount;
     }
 
     public BigDecimal getTotal() {
-        return BigDecimal.ZERO;
+        return total;
     }
 }
