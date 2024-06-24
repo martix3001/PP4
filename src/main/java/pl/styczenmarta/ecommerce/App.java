@@ -24,10 +24,10 @@ public class App {
 
         var prd1 = productCatalog.addProduct("Product 1", "Good,Price($):", BigDecimal.valueOf(10));
         productCatalog.changePrice(prd1,BigDecimal.valueOf(10));
-        var prd2 = productCatalog.addProduct("Product 2", "Bad,Price($):",BigDecimal.valueOf(20));
-        productCatalog.changePrice(prd2,BigDecimal.valueOf(20));
-        var prd3 = productCatalog.addProduct("Product 3", "Sad,Price($):",BigDecimal.valueOf(30));
-        productCatalog.changePrice(prd3,BigDecimal.valueOf(30));
+        var prd2 = productCatalog.addProduct("Product 2", "Bad,Price($):",BigDecimal.valueOf(10));
+        productCatalog.changePrice(prd2,BigDecimal.valueOf(10));
+        var prd3 = productCatalog.addProduct("Product 3", "Sad,Price($):",BigDecimal.valueOf(10));
+        productCatalog.changePrice(prd3,BigDecimal.valueOf(10));
 
         return productCatalog;
     }

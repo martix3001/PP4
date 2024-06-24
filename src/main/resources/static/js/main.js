@@ -49,8 +49,15 @@ const acceptOffer = (acceptOfferRequest) => {
         body: JSON.stringify(acceptOfferRequest),
     }).then(response => response.json());
 }
-
-
+const initializeCartHandler = (productHtmlEl) => {
+    const addToCartBtn = productHtmlEl.querySelector("button[data-id]")
+    addToCartBtn.addEventListener("click", (event) => {
+        const productId = event.target.getAttribute("data-id");
+        addProductToCart(productId)
+            .then(refreshCurrentOffer());
+    });
+    return productHtmlEl;
+}
 const refreshCurrentOffer = () => {
     const totalEl = document.querySelector('#offer__items-total');
     const itemCountEl = document.querySelector('#offer__items-count');
@@ -61,18 +68,6 @@ const refreshCurrentOffer = () => {
             itemCountEl.textContent = `${offer.itemsCount} Items`;
         })
 }
-
-
-const initializeCartHandler = (productHtmlEl) => {
-    const addToCartBtn = productHtmlEl.querySelector("button[data-id]")
-    addToCartBtn.addEventListener("click", (event) => {
-        const productId = event.target.getAttribute("data-id");
-        addProductToCart(productId)
-            .then(refreshCurrentOffer());
-    });
-    return productHtmlEl;
-}
-
 const checkoutFormEl = document.querySelector('#checkout');
 checkoutFormEl.addEventListener("submit", (event) => {
     event.preventDefault();

@@ -9,7 +9,7 @@ import pl.styczenmarta.ecommerce.sales.order.ReservationDetail;
 
 
 public class SalesFacade {
-    private OfferCalculator calculator;
+
     private InMemoryCartStorage cartStorage;
     private OfferCalculator offerCalculator;
 
@@ -21,7 +21,6 @@ public class SalesFacade {
 
     public void addToCart(String customerId, String productId) {
         Cart cart = loadCartForCustomer(customerId);
-
         cart.addProduct(productId);
         cartStorage.save(customerId, cart);
     }

@@ -51,8 +51,5 @@ public class Product {
         return this;
     }
 
-    public Product setPrice(BigDecimal price) {
-        this.price = price;
-        return this;
-    }
+
 }
