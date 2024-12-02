@@ -1,4 +1,4 @@
-name: Run Unit tests
+name: Realase
 on:
   push:
     tags:
